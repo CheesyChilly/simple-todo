@@ -1,8 +1,15 @@
 import Create from "./Create";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 function Home() {
   const [todos, setTodos] = useState([]);
+  useEffect(() => {
+    axios
+      .get("http://localhost:5000/get")
+      .then((result) => setTodos(result.data))
+      .catch((error) => console.log(error));
+  });
   return (
     <div className="flex flex-col items-center">
       <h2>Todo list</h2>
@@ -12,11 +19,7 @@ function Home() {
           <h2>No records</h2>
         </div>
       ) : (
-        todos.map((todo) => (
-          <div key="">
-            {todo}
-          </div>
-        ))
+        todos.map((todo) => <div key={todo._id}>{todo.task}</div>)
       )}
     </div>
   );
