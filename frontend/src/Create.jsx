@@ -5,7 +5,7 @@ function Create() {
   const [task, setTask] = useState("");
   const handleAdd = () => {
     axios
-      .post("http://localhost:5000/add", { task: task })
+      .post("https://simple-todo-z0a6.onrender.com/add", { task: task })
       .then((result) => {
         setTask("");
         console.log(result);

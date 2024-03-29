@@ -12,27 +12,27 @@ function Home() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/get")
+      .get("https://simple-todo-z0a6.onrender.com/get")
       .then((result) => setTodos(result.data))
       .catch((error) => console.log(error));
   });
 
   const handleDone = (id) => {
     axios
-      .put(`http://localhost:5000/done/${id}`)
+      .put(`https://simple-todo-z0a6.onrender.com/done/${id}`)
       .then((result) => console.log(result))
       .catch((error) => console.log(error));
   };
   const handleNotdone = (id) => {
     axios
-      .put(`http://localhost:5000/notdone/${id}`)
+      .put(`https://simple-todo-z0a6.onrender.com/notdone/${id}`)
       .then((result) => console.log(result))
       .catch((error) => console.log(error));
   };
 
   const taskDelete = (id) => {
     axios
-      .delete(`http://localhost:5000/delete/${id}`)
+      .delete(`https://simple-todo-z0a6.onrender.com/delete/${id}`)
       .then((result) => console.log(result))
       .catch((error) => console.log(error));
   };
