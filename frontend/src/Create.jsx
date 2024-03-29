@@ -3,7 +3,7 @@ function Create() {
     <div className="p-4">
       <input
         type="text"
-        name=""
+        placeholder="Enter task"
         id=""
         className="w-[300px] p-[9px] ml-2 rounded-[10px] border-2"
       />
