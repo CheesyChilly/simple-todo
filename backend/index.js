@@ -24,6 +24,27 @@ app.get("/get", (request, response) => {
     });
 });
 
+app.put("/done/:id", (req, res) => {
+  const { id } = req.params;
+  TodoModel.findByIdAndUpdate({ _id: id }, { done: true })
+    .then((result) => res.json(result))
+    .catch((error) => res.json(error));
+});
+
+app.put("/notdone/:id", (req, res) => {
+  const { id } = req.params;
+  TodoModel.findByIdAndUpdate({ _id: id }, { done: false })
+    .then((result) => res.json(result))
+    .catch((error) => res.json(error));
+});
+
+app.delete("/delete/:id", (req, res) => {
+  const { id } = req.params;
+  TodoModel.findByIdAndDelete(id)
+    .then((result) => res.json(result))
+    .catch((error) => res.json(error));
+});
+
 app.post("/add", (request, response) => {
   const task = request.body.task;
   TodoModel.create({
